@@ -7,7 +7,7 @@ public:
         sort(stocks.begin(), stocks.end());
         int count = 0;
         long long int x1, x2, x3, y1, y2, y3;
-        for (int i = 2; i < stocks.size(); i++) {
+        for (int i = 2; i < n; i++) {
             x1 = stocks[i-2][0];
             x2 = stocks[i-1][0];
             x3 = stocks[i][0];
