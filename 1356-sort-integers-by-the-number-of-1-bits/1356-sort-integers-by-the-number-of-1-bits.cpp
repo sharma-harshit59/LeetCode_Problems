@@ -1,9 +1,9 @@
 class Solution {
 public:
-    static int count_1(int n) {
+    static int count_1(int num) {
         int count = 0;
-        while (n) {
-            n = (n & (n - 1));
+        while (num) {
+            num &= (num - 1);
             count++;
         }
         return count;
@@ -11,7 +11,7 @@ public:
     
     static bool comp(int a, int b) {
         int m = count_1(a), n = count_1(b);
-        return (m == n) ? a < b : m < n;
+        return ((m == n) ? (a < b) : (m < n));
     }
     
     vector<int> sortByBits(vector<int>& arr) {
