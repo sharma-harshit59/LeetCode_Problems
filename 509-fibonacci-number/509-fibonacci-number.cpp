@@ -2,8 +2,8 @@ class Solution {
 public:
     vector<int> f{0, 1};
     int fib(int n) {
-        if (n >= f.size())
-            f.push_back(fib(n-1) + fib(n-2));
+        while (f.size() <= n)
+            f.push_back(*(f.rbegin()) + *(f.rbegin() + 1));
         return f[n];
     }
 };
