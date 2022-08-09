@@ -22,6 +22,7 @@ public:
     }
     
     vector<int> getAllElements(TreeNode* root1, TreeNode* root2) {
+        elements = {};
         get_elements(root1);
         get_elements(root2);
         sort(elements.begin(), elements.end());
