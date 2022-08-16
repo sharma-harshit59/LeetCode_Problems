@@ -1,11 +1,11 @@
 class Solution {
 public:
     int firstUniqChar(string s) {
-        vector<int> count(26, 0);
-        for (auto ch: s)
-            count[ch - 'a']++;
+        unordered_map<char, int> hmap;
+        for (auto i: s)
+            hmap[i]++;
         for (int i = 0; i < s.size(); i++)
-            if (count[s[i] - 'a'] == 1)
+            if (hmap[s[i]] == 1)
                 return i;
         return -1;
     }
