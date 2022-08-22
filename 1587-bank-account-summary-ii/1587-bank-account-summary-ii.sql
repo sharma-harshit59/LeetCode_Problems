@@ -1,8 +1,11 @@
 SELECT
-    U.name AS name, B.balance AS balance
+    U.name AS name,
+    T.balance AS balance
 FROM
-    (SELECT T.account, SUM(T.amount) AS balance
-     FROM Transactions T
-     GROUP BY T.account) B, Users U
+    Users U,
+    (SELECT account, SUM(amount) AS balance
+     FROM Transactions
+     GROUP BY account
+     HAVING balance > 10000) T
 WHERE
-    B.balance > 10000 AND (B.account = U.account);
+    U.account = T.account;
