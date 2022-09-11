@@ -15,6 +15,6 @@ public:
         for (int i = 1; (i < nums.size()) && (flag == -1); i++)
             if (nums[i] > nums[i-1])
                 flag = 0;
-        return (flag) ? true : false;
+        return flag;
     }
 };
