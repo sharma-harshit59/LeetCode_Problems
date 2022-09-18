@@ -1,19 +1,17 @@
 class Solution {
 public:
     int matchPlayersAndTrainers(vector<int>& players, vector<int>& trainers) {
-        priority_queue<int, vector<int>, greater<int>> p, t;
-        for (int i: players)
-            p.push(i);
-        for (int i: trainers)
-            t.push(i);
-        int count = 0;
-        while (!t.empty() && !p.empty()) {
-            cout<< p.top() << "<=" << t.top() << "\n";
-            if (t.top() >= p.top()) {
+        sort(players.begin(), players.end());
+        sort(trainers.begin(), trainers.end());
+        int i = 0, j = 0, count = 0;
+        while (i < players.size() && j < trainers.size()) {
+            if (trainers[j] < players[i])
+                j++;
+            else {
                 count++;
-                p.pop();
+                i++;
+                j++;
             }
-            t.pop();
         }
         return count;
     }
