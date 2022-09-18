@@ -6,7 +6,7 @@ public:
             if (s[i] == (s[i-1] + 1))
                 temp_size++;
             else {
-                max_size = max(max_size, temp_size);
+                if (max_size < temp_size) max_size = temp_size;
                 temp_size = 1;
             }
             i++;
