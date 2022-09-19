@@ -1,26 +1,40 @@
 class Solution {
 public:
     int evalRPN(vector<string>& tokens) {
-        stack<int> op;
-        int op1, op2;
-        for (string s: tokens) {
-            if ((s == "+") || (s == "-") || (s == "*") || (s == "/")) {
-                op2 = op.top();
-                op.pop();
-                op1 = op.top();
-                op.pop();
-                if (s == "+")
-                    op.push(op1 + op2);
-                else if (s == "-")
-                    op.push(op1 - op2);
-                else if (s == "*")
-                    op.push(op1 * op2);
-                else
-                    op.push(op1 / op2);
+        stack<long> nums;
+        long a, b;
+        for (int i = 0; i < tokens.size(); i++) {
+            if (tokens[i] == "+") {
+                b = nums.top();
+                nums.pop();
+                a = nums.top();
+                nums.pop();
+                nums.push(a + b);
+            }
+            else if (tokens[i] == "-") {
+                b = nums.top();
+                nums.pop();
+                a = nums.top();
+                nums.pop();
+                nums.push(a - b);
+            }
+            else if (tokens[i] == "*") {
+                b = nums.top();
+                nums.pop();
+                a = nums.top();
+                nums.pop();
+                nums.push(a * b);
+            }
+            else if (tokens[i] == "/") {
+                b = nums.top();
+                nums.pop();
+                a = nums.top();
+                nums.pop();
+                nums.push(a / b);
             }
             else
-                op.push(stoi(s));
+                nums.push(stoi(tokens[i]));
         }
-        return op.top();
+        return nums.top();
     }
 };
