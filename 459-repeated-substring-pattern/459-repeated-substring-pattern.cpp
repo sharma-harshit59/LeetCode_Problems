@@ -1,19 +1,18 @@
 class Solution {
 public:
     bool repeatedSubstringPattern(string s) {
-        string substr = "", temp = "";
-        int i = 0, rep;
-        while (i <= s.size()/2) {
-            substr += s[i];
-            rep = (s.size() / substr.size());
-            if ((rep > 1) && ((substr.size() * rep) == s.size())) {
-                while (rep--)
-                    temp += substr;
-                if (temp == s)
-                    return true;
-            }
-            temp = "";
-            i++;
+        string temp = "", t;
+        int n = s.size(), m, repeat;
+        for (int i = 0; i <= n/2; i++) {
+            temp += s[i];
+            t = temp;
+            m = temp.size();
+            repeat = (n / m);
+            if (repeat < 2) continue;
+            for (int j = 1; j < repeat; j++)
+                t += temp;
+            if (t == s)
+                return true;
         }
         return false;
     }
