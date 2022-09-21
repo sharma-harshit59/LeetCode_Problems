@@ -7,8 +7,9 @@ public:
     }
     
     void rotate(vector<vector<int>>& matrix) {
-        for (int i = 0, j = matrix.size()-1; i < j; i++, j--)
-            swap(matrix[i], matrix[j]);
+        int i = 0, j = matrix.size()-1;
+        while (i < j)
+            swap(matrix[i++], matrix[j--]);
         transpose(matrix);
     }
 };
