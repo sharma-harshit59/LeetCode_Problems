@@ -9,13 +9,15 @@ public:
     
     string reverseWords(string s) {
         string temp = "", res = "";
-        for (char ch: s) {
-            if (ch == ' ') {
+        int i = 0;
+        while (i < s.size()) {
+            if (s[i] == ' ') {
                 res += (reverse(temp) + ' ');
                 temp = "";
             }
             else
-                temp += ch;
+                temp += s[i];
+            i++;
         }
         res += reverse(temp);
         return res;
