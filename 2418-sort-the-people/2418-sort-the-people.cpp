@@ -1,9 +1,5 @@
 class Solution {
-public:
-    bool comp(pair<int, string>& a, pair<int, string>& b) {
-        return (a.first > b.first);
-    }
-    
+public:    
     vector<string> sortPeople(vector<string>& names, vector<int>& heights) {
         vector<pair<int, string>> arr;
         for (int i = 0; i < names.size(); i++)
