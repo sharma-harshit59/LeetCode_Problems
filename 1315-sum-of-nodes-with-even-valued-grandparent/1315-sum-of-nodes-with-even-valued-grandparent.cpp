@@ -14,7 +14,7 @@ class Solution {
 public:
     void calc_sum_nodes(TreeNode* root, int parent, int grandparent) {
         if (root) {
-            if (!(grandparent % 2))
+            if (grandparent % 2 == 0)
                 sum_nodes += (root -> val);
             calc_sum_nodes(root -> left, root -> val, parent);
             calc_sum_nodes(root -> right, root -> val, parent);
